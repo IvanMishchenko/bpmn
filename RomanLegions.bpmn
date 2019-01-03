@@ -30,6 +30,7 @@
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0ilvl3k</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1wi44k1</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_03dwhec</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:serviceTask id="Task_1a7tblx" name="Fight against Germanic Tribe" camunda:type="external" camunda:topic="FightTribe">
       <bpmn:incoming>SequenceFlow_0qvvbmr</bpmn:incoming>
@@ -46,6 +47,15 @@
         <bpmn:condition xsi:type="bpmn:tFormalExpression">#{legionStatus=='defeated'}</bpmn:condition>
       </bpmn:conditionalEventDefinition>
     </bpmn:intermediateCatchEvent>
+    <bpmn:task id="Task_114bii3" name="test version">
+      <bpmn:incoming>SequenceFlow_03dwhec</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0gxi31v</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_03dwhec" sourceRef="Task_1i94z7z" targetRef="Task_114bii3" />
+    <bpmn:endEvent id="EndEvent_1rnursx">
+      <bpmn:incoming>SequenceFlow_0gxi31v</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0gxi31v" sourceRef="Task_114bii3" targetRef="EndEvent_1rnursx" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RomanLegions">
@@ -98,6 +108,22 @@
           <dc:Bounds x="482" y="255" width="90" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_114bii3_di" bpmnElement="Task_114bii3">
+        <dc:Bounds x="464" y="351" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_03dwhec_di" bpmnElement="SequenceFlow_03dwhec">
+        <di:waypoint x="309" y="160" />
+        <di:waypoint x="323" y="329" />
+        <di:waypoint x="412" y="391" />
+        <di:waypoint x="464" y="391" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1rnursx_di" bpmnElement="EndEvent_1rnursx">
+        <dc:Bounds x="669" y="373" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gxi31v_di" bpmnElement="SequenceFlow_0gxi31v">
+        <di:waypoint x="564" y="391" />
+        <di:waypoint x="669" y="391" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
